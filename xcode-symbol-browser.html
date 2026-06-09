@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xcode Symbol Browser — Ladan Johari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F7F6F3;
+      --ink:       #111111;
+      --mid:       #6B6B6B;
+      --rule:      #D4D3CF;
+      --hover-row: #F0EFEC;
+      --accent:    #0066FF;
+      --accent-dim:#D6E4FF;
+    }
+
+    body {
+      font-family: 'Geist', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      max-width: 700px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 28px 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a.wordmark {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    nav a.wordmark:hover { color: var(--accent); }
+
+    nav .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    nav .nav-links a:hover { color: var(--ink); }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-align: center;
+    }
+
+    footer {
+      max-width: 700px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 24px 28px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--mid);
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    footer .footer-links a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    footer .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 540px) {
+      nav, footer { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="wordmark" href="/">Ladan Johari</a>
+    <div class="nav-links">
+      <a href="/">Work</a>
+      <a href="/#about">About</a>
+    </div>
+  </nav>
+
+  <main>
+    <p class="placeholder">Case study in progress — Ladan Johari</p>
+  </main>
+
+  <footer>
+    <span>© 2025 Ladan Johari</span>
+    <div class="footer-links">
+      <a href="https://github.com/ladanjohari" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/ladan-johari/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>

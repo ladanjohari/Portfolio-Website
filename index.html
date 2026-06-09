@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ladan Johari &mdash; Design Engineer</title>
+  <meta name="description" content="Ladan Johari is a Design Engineer in the San Francisco Bay Area building AI interfaces, interaction systems, and developer tools. MFA Design, UC Davis." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ladanjohari.com/" />
+  <meta property="og:title" content="Ladan Johari &mdash; Design Engineer" />
+  <meta property="og:description" content="Design Engineer in the Bay Area. AI interfaces, interaction craft, design systems." />
+  <meta property="og:url" content="https://ladanjohari.com/" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Ladan Johari","jobTitle":"Design Engineer","url":"https://ladanjohari.com","sameAs":["https://www.linkedin.com/in/ladan-johari/","https://github.com/ladanjohari"],"address":{"@type":"PostalAddress","addressRegion":"CA","addressCountry":"US"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F7F6F3;
+      --ink:       #111111;
+      --mid:       #6B6B6B;
+      --rule:      #D4D3CF;
+      --hover-row: #F0EFEC;
+      --accent:    #0066FF;
+      --accent-dim:#D6E4FF;
+    }
+
+    html { background: var(--bg); }
+
+    body {
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ─ Shell ─ */
+    .shell {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ─ Custom cursor dot ─ */
+    .cursor-dot {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s;
+      opacity: 0;
+      mix-blend-mode: multiply;
+    }
+
+    /* ─ Nav ─ */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0 0;
+    }
+
+    .nav-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ─ Hero ─ */
+    .hero {
+      padding: 80px 0 64px;
+    }
+
+    .available {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #2d7a3a;
+      margin-bottom: 28px;
+    }
+
+    .available-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2d7a3a;
+      animation: breathe 2.4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.65); }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 18px;
+    }
+
+    .hero-name {
+      font-size: clamp(2.4rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.06;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .hero-name em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 0.975rem;
+      line-height: 1.7;
+      color: var(--mid);
+      max-width: 460px;
+      font-weight: 400;
+    }
+
+    .hero-desc strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ─ Section label ─ */
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ─ Work list ─ */
+    .work-list {
+      list-style: none;
+      margin-bottom: 72px;
+    }
+
+    .work-item {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .work-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      text-decoration: none;
+      color: var(--ink);
+      border-radius: 6px;
+      transition: background 0.12s;
+      margin: 0 -10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .work-link:hover {
+      background: var(--hover-row);
+    }
+
+    /* Small always-visible thumbnail */
+    .work-thumb-small {
+      width: 60px;
+      height: 42px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: #1A1A18;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.12s;
+    }
+
+    .work-thumb-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .work-thumb-small .thumb-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .work-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .work-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .work-tags {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .work-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .work-year {
+      font-size: 0.75rem;
+      color: var(--mid);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .work-arrow {
+      font-size: 0.85rem;
+      color: var(--rule);
+      transition: color 0.12s, transform 0.14s;
+    }
+
+    .work-link:hover .work-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    /* ─ Floating hover preview ─ */
+    .hover-preview {
+      position: fixed;
+      width: 260px;
+      height: 174px;
+      border-radius: 10px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(10px) scale(0.96);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hover-preview.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .hover-preview-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .hover-preview-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .preview-label {
+      font-family: 'Geist', system-ui, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─ Stack ─ */
+    .stack-section {
+      margin-bottom: 72px;
+    }
+
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 18px;
+    }
+
+    .stack-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 5px 11px;
+      transition: border-color 0.12s, color 0.12s;
+      cursor: default;
+    }
+
+    .stack-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─ About ─ */
+    .about-strip {
+      padding: 52px 0 72px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .about-text {
+      font-size: 0.925rem;
+      line-height: 1.8;
+      color: var(--mid);
+      max-width: 500px;
+    }
+
+    .about-text strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .about-text a {
+      color: var(--mid);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--rule);
+      transition: color 0.12s, text-decoration-color 0.12s;
+    }
+
+    .about-text a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent-dim);
+    }
+
+    /* ─ Footer ─ */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 26px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 0.76rem;
+      color: var(--mid);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.76rem;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.12s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─ Responsive ─ */
+    @media (max-width: 540px) {
+      .shell { padding: 0 20px; }
+      nav { padding-top: 28px; }
+      .hero { padding: 56px 0 44px; }
+      .hero-name { font-size: 2rem; }
+      .hover-preview { display: none; }
+      .cursor-dot { display: none; }
+      footer { flex-direction: column; gap: 14px; align-items: flex-start; }
+      .nav-links { gap: 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .available-dot { animation: none; }
+      .hover-preview, .work-arrow, .cursor-dot { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cursor dot -->
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Floating hover preview -->
+<div class="hover-preview" id="hoverPreview">
+  <div class="hover-preview-inner" id="hoverInner">
+    <span class="preview-label" id="previewLabel"></span>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- Nav -->
+  <nav>
+    <a href="/" class="nav-name">Ladan Johari</a>
+    <ul class="nav-links">
+      <li><a href="mailto:ladan.joharizadeh@gmail.com">Contact</a></li>
+      <li><a href="https://github.com/ladanjohari" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ladan-johari/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="available">
+      <span class="available-dot"></span>
+      Available for new roles
+    </div>
+    <p class="hero-eyebrow">Design Engineer &mdash; Bay Area, CA</p>
+    <h1 class="hero-name">I build interfaces<br>that <em>think.</em></h1>
+    <p class="hero-desc">
+      <strong>Design &times; engineering</strong> for AI tools, developer surfaces, and interaction systems.
+      MFA Design, UC Davis. Architecture and sculpture background.
+      I work where craft, code, and systems thinking converge.
+    </p>
+  </header>
+
+  <!-- Work -->
+  <section aria-label="Selected work" style="margin-bottom: 0;">
+    <p class="section-label">Selected Work</p>
+    <ul class="work-list">
+
+      <li class="work-item">
+        <a class="work-link" href="session-indicator.html"
+           data-preview-bg="#111111"
+           data-preview-color="#555555"
+           data-preview-label="Session Indicator">
+          <div class="work-thumb-small" style="background:#111111;">
+            <span class="thumb-label" style="color:#444;">SI</span>
+          </div>
+          <div class="work-info">
+            <div class="work-title">Session Indicator</div>
+            <div class="work-tags">AI Agent UI &middot; Interaction System &middot; Design Engineering</div>
+          </div>
+          <div class="work-right">
+            <span class="work-year">2025</span>
+            <span class="work-arrow">&rarr;</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="work-item">
+        <a class="work-link" href="promptedfind.html"
+           data-preview-bg="#0a1828"
+           data-preview-color="#2a8855"
+           data-preview-label="PromptedFind">
+          <div class="work-thumb-small" style="background:#0a1828;">
+            <span class="thumb-label" style="color:#2a5540;">PF</span>
+          </div>
+          <div class="work-info">
+            <div class="work-title">PromptedFind</div>
+            <div class="work-tags">AI Interaction Pattern &middot; Prototype &middot; Semantic Navigation</div>
+          </div>
+          <div class="work-right">
+            <span class="work-year">2025</span>
+            <span class="work-arrow">&rarr;</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="work-item">
+        <a class="work-link" href="xcode-symbol-browser.html"
+           data-preview-bg="#1C1C1E"
+           data-preview-color="#666666"
+           data-preview-label="Xcode Symbol Browser">
+          <div class="work-thumb-small" style="background:#1C1C1E;">
+            <span class="thumb-label" style="color:#555;">XS</span>
+          </div>
+          <div class="work-info">
+            <div class="work-title">Xcode Symbol Browser</div>
+            <div class="work-tags">Developer Tools &middot; Information Architecture &middot; macOS</div>
+          </div>
+          <div class="work-right">
+            <span class="work-year">2024</span>
+            <span class="work-arrow">&rarr;</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="work-item">
+        <a class="work-link" href="trails.html"
+           data-preview-bg="#EDE9E0"
+           data-preview-color="#B0A898"
+           data-preview-label="Trails">
+          <div class="work-thumb-small" style="background:#EDE9E0; border-color:#D4D0C8;">
+            <span class="thumb-label" style="color:#C0BAB0;">TR</span>
+          </div>
+          <div class="work-info">
+            <div class="work-title">Trails</div>
+            <div class="work-tags">Knowledge Navigation &middot; Graph Interface &middot; Research Tools</div>
+          </div>
+          <div class="work-right">
+            <span class="work-year">2023</span>
+            <span class="work-arrow">&rarr;</span>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Stack -->
+  <section class="stack-section" aria-label="Tools and technologies">
+    <p class="section-label">Stack</p>
+    <div class="stack-row">
+      <span class="stack-tag">Figma</span>
+      <span class="stack-tag">SwiftUI</span>
+      <span class="stack-tag">HTML &amp; CSS</span>
+      <span class="stack-tag">JavaScript</span>
+      <span class="stack-tag">Node.js</span>
+      <span class="stack-tag">PostgreSQL</span>
+      <span class="stack-tag">Design Systems</span>
+      <span class="stack-tag">Prototyping</span>
+      <span class="stack-tag">Motion Design</span>
+      <span class="stack-tag">AI Interfaces</span>
+      <span class="stack-tag">Product Storytelling</span>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-strip" aria-label="About">
+    <p class="about-text">
+      <strong>I started by making physical things</strong> &mdash; architecture, bronze sculpture, wearable objects.
+      That material thinking carried forward: I approach interfaces the way a sculptor approaches form.
+      What is the minimum surface that holds the most meaning?<br><br>
+      MFA in Design from UC Davis. Based in the Bay Area.
+      Currently focused on design engineering for AI products and developer tools.
+      <a href="/art">Before all this, I made physical things &rarr;</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-left">&copy; 2026 Ladan Johari</span>
+    <ul class="footer-links">
+      <li><a href="mailto:ladan.joharizadeh@gmail.com">ladan.joharizadeh@gmail.com</a></li>
+      <li><a href="https://github.com/ladanjohari" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/ladan-johari/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+  // ── Cursor dot ──
+  const dot = document.getElementById('cursorDot');
+  let dotX = 0, dotY = 0, curX = 0, curY = 0;
+
+  document.addEventListener('mousemove', e => {
+    curX = e.clientX;
+    curY = e.clientY;
+    dot.style.opacity = '1';
+  });
+
+  (function animateDot() {
+    dotX += (curX - dotX) * 0.18;
+    dotY += (curY - dotY) * 0.18;
+    dot.style.left = dotX + 'px';
+    dot.style.top  = dotY + 'px';
+    requestAnimationFrame(animateDot);
+  })();
+
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; });
+
+  // ── Hover preview ──
+  const preview   = document.getElementById('hoverPreview');
+  const inner     = document.getElementById('hoverInner');
+  const labelEl   = document.getElementById('previewLabel');
+  let mx = 0, my = 0, previewActive = false;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    if (previewActive) positionPreview();
+  });
+
+  function positionPreview() {
+    const pw = 260, ph = 174;
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const pad = 20;
+    let x = mx + 28;
+    let y = my - ph / 2;
+    if (x + pw > vw - pad) x = mx - pw - 28;
+    if (y < pad) y = pad;
+    if (y + ph > vh - pad) y = vh - ph - pad;
+    preview.style.left = x + 'px';
+    preview.style.top  = y + 'px';
+  }
+
+  document.querySelectorAll('.work-link').forEach(link => {
+    const bg    = link.dataset.previewBg    || '#1A1A18';
+    const color = link.dataset.previewColor || '#555';
+    const label = link.dataset.previewLabel || '';
+
+    link.addEventListener('mouseenter', () => {
+      previewActive = true;
+      inner.style.background = bg;
+      labelEl.style.color = color;
+      labelEl.textContent = label;
+      positionPreview();
+      preview.classList.add('show');
+    });
+
+    link.addEventListener('mouseleave', () => {
+      previewActive = false;
+      preview.classList.remove('show');
+    });
+  });
+
+  // ── Swap in real screenshots ──
+  // When you have screenshots, replace the placeholder thumbnails like this:
+  //
+  // document.querySelector('[data-preview-label="Session Indicator"] .work-thumb-small')
+  //   .innerHTML = '<img src="assets/session-indicator-thumb.jpg" alt="Session Indicator" />';
+  // document.querySelector('[data-preview-label="Session Indicator"]')
+  //   .querySelector('#hoverInner') ... use data-img attr instead (see below)
+  //
+  // Simpler: add data-img="assets/session-thumb.jpg" to each .work-link,
+  // then in the mouseenter handler: inner.innerHTML = `<img src="${link.dataset.img}" alt="${label}" />`
+</script>
+
+</body>
+</html>
